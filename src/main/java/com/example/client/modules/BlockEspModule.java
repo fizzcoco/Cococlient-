@@ -20,6 +20,7 @@ import java.util.Set;
  */
 public class BlockEspModule extends Module {
     private final Set<BlockPos> reported = new HashSet<>();
+    private static final int SCAN_RADIUS = 16; // chunks; unloaded ones are skipped
     private int ticks = 0;
 
     public BlockEspModule() { super("BlockESP"); }
@@ -35,7 +36,7 @@ public class BlockEspModule extends Module {
         if (mc.world == null || mc.player == null) return;
         if (ticks++ % 40 != 0) return; // scan every 2 seconds
 
-        int r = mc.options.getClientViewDistance().getValue();
+        int r = SCAN_RADIUS;
         ChunkPos center = mc.player.getChunkPos();
 
         for (int dx = -r; dx <= r; dx++) {
