@@ -3,7 +3,6 @@ package com.example.client.modules;
 import com.example.client.Module;
 import net.minecraft.block.ShulkerBoxBlock;
 import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -34,7 +33,7 @@ public class ItemEspModule extends Module {
         if (mc.world == null || mc.player == null) return;
         Box area = mc.player.getBoundingBox().expand(RANGE);
         for (ItemEntity item : mc.world.getEntitiesByClass(ItemEntity.class, area, e -> true)) {
-            if (!item.hasStatusEffect(StatusEffects.GLOWING)) item.setGlowing(false);
+            item.setGlowing(false);
         }
     }
 }
