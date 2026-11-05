@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "coconutclient",
+  "version": "0.1.0",
+  "name": "Coconut Client",
+  "description": "Coconut Client - client-side utility mod.",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.example.client.CoconutClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "1.21.11",
+    "fabric-api": "*"
+  },
+  "mixins": [
+    "coconutclient.mixins.json"
+  ]
+}
